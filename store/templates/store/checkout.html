@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    {% include 'store/navbar.html' %}
+
+    <h1>Checkout 🛒</h1>
+
+    <div class="checkout-box">
+
+        <h2>Your Order</h2>
+
+        <div class="order-summary">
+
+            {% for item in products %}
+                <p>
+                    <strong>{{ item.product.name }}</strong>
+                    × {{ item.quantity }}
+                    — ₹{{ item.item_total }}
+                </p>
+            {% endfor %}
+
+            <h2 class="checkout-total">Total: ₹{{ total }}</h2>
+
+        </div>
+
+        <h2>Customer Details</h2>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <label>Name:</label><br>
+            <input type="text" name="customer_name" required><br><br>
+
+            <label>Email:</label><br>
+            <input type="email" name="email" required><br><br>
+
+            <label>Address:</label><br>
+            <textarea name="address" required></textarea><br><br>
+
+            <label>Payment Method:</label><br>
+
+            <select name="payment_method" id="payment_method" required>
+                <option value="">-- Select Payment Method --</option>
+                <option value="COD">Cash on Delivery (COD)</option>
+                <option value="Card">Credit/Debit Card</option>
+                <option value="UPI">UPI</option>
+            </select>
+
+            <br><br>
+
+            <div id="card-details" style="display: none;">
+
+                <label>Card Number:</label><br>
+                <input type="text" name="card_number" placeholder="Enter card number">
+
+                <br><br>
+
+                <label>Expiry Date:</label><br>
+                <input type="text" name="expiry" placeholder="MM/YY">
+
+                <br><br>
+
+                <label>CVV:</label><br>
+                <input type="password" name="cvv" placeholder="Enter CVV">
+
+                <br><br>
+
+            </div>
+
+            <div id="upi-details" style="display: none;">
+
+                <label>UPI ID:</label><br>
+                <input type="text" name="upi_id" placeholder="example@upi">
+
+                <br><br>
+
+            </div>
+
+            <button type="submit">Place Order</button>
+
+        </form>
+
+    </div>
+
+    <script>
+    const paymentMethod = document.getElementById("payment_method");
+    const cardDetails = document.getElementById("card-details");
+    const upiDetails = document.getElementById("upi-details");
+
+    const cardNumber = document.querySelector('[name="card_number"]');
+    const expiry = document.querySelector('[name="expiry"]');
+    const cvv = document.querySelector('[name="cvv"]');
+    const upiId = document.querySelector('[name="upi_id"]');
+
+    paymentMethod.addEventListener("change", function() {
+
+        cardDetails.style.display = "none";
+        upiDetails.style.display = "none";
+
+        cardNumber.required = false;
+        expiry.required = false;
+        cvv.required = false;
+        upiId.required = false;
+
+        if (this.value === "Card") {
+            cardDetails.style.display = "block";
+
+            cardNumber.required = true;
+            expiry.required = true;
+            cvv.required = true;
+        }
+
+        if (this.value === "UPI") {
+            upiDetails.style.display = "block";
+
+            upiId.required = true;
+        }
+    });
+    </script>
+
+</body>
+</html>

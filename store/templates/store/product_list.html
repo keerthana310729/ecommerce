@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My E-Commerce Store</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    {% include 'store/navbar.html' %}
+
+    <h1>My E-Commerce Store 🛒</h1>
+
+    <div class="products">
+
+    {% for product in products %}
+
+        <div class="product">
+
+            {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            {% endif %}
+
+            <h2>
+                <a href="{% url 'product_detail' product.id %}">{{ product.name }}</a>
+            </h2>
+
+            <p>{{ product.description }}</p>
+            <p>₹{{ product.price }}</p>
+
+            <a href="{% url 'add_to_cart' product.id %}">
+                <button>Add to Cart</button>
+            </a>
+
+        </div>
+
+    {% endfor %}
+    </div>
+
+</body>
+</html>

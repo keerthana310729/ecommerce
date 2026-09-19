@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Cart</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    {% include 'store/navbar.html' %}
+
+    <h1>My Cart 🛒</h1>
+
+    <div class="continue-shopping">
+        <a href="{% url 'product_list' %}">
+            <button>Continue Shopping</button>
+        </a>
+    </div>
+
+    {% for item in products %}
+
+        <div class="cart-item">
+
+            {% if item.product.image %}
+                <img class="cart-product-image"
+                     src="{{ item.product.image.url }}"
+                     alt="{{ item.product.name }}">
+            {% endif %}
+
+            <h2>{{ item.product.name }}</h2>
+
+            <p>Price: ₹{{ item.product.price }}</p>
+
+            <p>Quantity: {{ item.quantity }}</p>
+
+            <form method="post"
+                  action="{% url 'remove_from_cart' item.product.id %}"
+                  onsubmit="return removeItem(this);">
+
+                {% csrf_token %}
+
+                <button type="submit">Remove</button>
+
+            </form>
+
+        </div>
+
+    {% empty %}
+
+        <p>Your cart is empty.</p>
+
+    {% endfor %}
+
+    <h2 class="cart-total">Total: ₹{{ total }}</h2>
+
+    <div class="continue-shopping">
+        <a href="{% url 'checkout' %}">
+            <button>Checkout</button>
+        </a>
+    </div>
+
+    <script>
+        function removeItem(form) {
+            fetch(form.action, {
+                method: "POST",
+                headers: {
+                    "X-CSRFToken": form.querySelector('[name=csrfmiddlewaretoken]').value
+                }
+            }).then(() => {
+                window.location.replace(window.location.href);
+            });
+
+            return false;
+        }
+    </script>
+
+</body>
+</html>
+

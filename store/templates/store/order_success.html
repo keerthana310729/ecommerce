@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Placed</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    {% include 'store/navbar.html' %}
+
+    <div class="success-box">
+
+        <h1>✅ Order Placed Successfully!</h1>
+
+        <p>Thank you for your order.</p>
+
+        <p>Your order has been placed successfully.</p>
+
+        <div class="success-links">
+
+            <a href="{% url 'my_orders' %}">
+                View My Orders
+            </a>
+
+            <a href="{% url 'product_list' %}">
+                Continue Shopping
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

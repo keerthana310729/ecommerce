@@ -1,0 +1,433 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #588b61;
+    color: #26352b;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #4a3428;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #5a3e2b;
+}
+
+p {
+    color: #6b5142;
+}
+
+/* Buttons */
+
+button {
+    background-color: #834b17;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #834b17;
+}
+
+/* Navbar */
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    margin-bottom: 30px;
+    padding: 12px 0;
+}
+
+.navbar a {
+    color: #4a3428;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 800;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+.navbar a:hover {
+    background-color: #f5f1ed;
+    text-decoration: none;
+}
+
+/* Products */
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.product {
+    background-color: white;
+    width: 280px;
+    margin: 0;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.product img {
+    width: 100%;
+    max-width: 220px;
+    height: 200px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 15px;
+}
+
+.product h2 {
+    font-size: 22px;
+    font-weight: 800;
+    margin: 15px 0 10px;
+}
+
+.product h2 a {
+    color: #5a3e2b;
+    text-decoration: none;
+}
+
+.product h2 a:hover {
+    text-decoration: underline;
+}
+
+.product p {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.product p:last-of-type {
+    font-size: 20px;
+    font-weight: 800;
+    color: #834b17;
+}
+
+.product:hover {
+    transform: translateY(-3px);
+    transition: 0.2s;
+}
+
+/* Product Details Page */
+
+.product-detail-image {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+    display: block;
+    margin: 20px auto;
+}
+
+.product-details {
+    width: 100%;
+    margin: 20px auto;
+    text-align: center;
+    font-weight: bold;
+}
+
+.product-details p {
+    color: #6b5142;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin: 15px auto;
+}
+
+.product-details h2 {
+    color: #5a3e2b;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px auto;
+}
+
+/* Cart */
+
+.cart-item {
+    background-color: white;
+    width: 400px;
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.cart-item h2 {
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.cart-item p {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.cart-product-image {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 15px;
+}
+
+.cart-total {
+    background-color: white;
+    width: 400px;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.continue-shopping {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Checkout */
+
+.checkout-box {
+    background-color: white;
+    width: 500px;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-weight: bold;
+}
+
+.checkout-box input,
+.checkout-box textarea {
+    width: 80%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.checkout-box label {
+    font-weight: bold;
+}
+
+.checkout-box select {
+    width: 84%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.checkout-box textarea {
+    height: 80px;
+    resize: vertical;
+}
+
+.order-summary {
+    background-color: #f5f1ed;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+}
+
+.order-summary p {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.checkout-total {
+    font-size: 25px;
+    font-weight: 800;
+    color: #834b17;
+}
+
+/* My Orders */
+
+.order-card {
+    background-color: white;
+    width: 500px;
+    margin: 25px auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    text-align: left;
+}
+
+.order-card h2 {
+    text-align: center;
+    font-size: 23px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.order-card p {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 12px 0;
+}
+
+.order-total {
+    text-align: center;
+    font-size: 22px !important;
+    font-weight: 800 !important;
+    color: #834b17 !important;
+    margin-top: 20px !important;
+}
+
+.no-orders {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Order Success */
+
+.success-box {
+    background-color: white;
+    width: 500px;
+    margin: 60px auto;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.success-box h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.success-box p {
+    font-size: 17px;
+    font-weight: 600;
+    margin: 12px 0;
+}
+
+.success-links {
+    margin-top: 25px;
+}
+
+.success-links a {
+    display: inline-block;
+    background-color: #834b17;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    margin: 8px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.success-links a:hover {
+    background-color: #834b17;
+}
+/* Login */
+
+.login-error {
+    color: #b3261e;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.auth-links {
+    margin-top: 20px;
+}
+
+.auth-links p {
+    margin: 12px 0;
+}
+
+.auth-links a {
+    color: #834b17;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.auth-links a:hover {
+    text-decoration: underline;
+}
+/* Mobile Responsive Design */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .navbar {
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .navbar a {
+        font-size: 16px;
+        padding: 7px 9px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    .products {
+        padding: 10px 0;
+    }
+
+    .product {
+        width: 85%;
+    }
+
+    .product img {
+        max-width: 200px;
+    }
+
+    .product-detail-image {
+        width: 80%;
+        height: auto;
+        max-height: 300px;
+    }
+
+    .cart-item,
+    .cart-total,
+    .checkout-box,
+    .order-card,
+    .success-box {
+        width: 85%;
+        padding: 20px;
+    }
+
+    .checkout-box input,
+    .checkout-box textarea,
+    .checkout-box select {
+        width: 90%;
+    }
+
+    .success-box h1 {
+        font-size: 24px;
+    }
+
+    .success-links a {
+        display: block;
+        margin: 10px auto;
+        width: 70%;
+    }
+}

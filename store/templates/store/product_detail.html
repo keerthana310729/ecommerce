@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ product.name }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    {% include 'store/navbar.html' %}
+
+    <h1>{{ product.name }}</h1>
+
+    {% if product.image %}
+        <img class="product-detail-image" src="{{ product.image.url }}" alt="{{ product.name }}">
+    {% endif %}
+
+    <div class="product-details">
+
+        <p>{{ product.description }}</p>
+
+        <h2>₹{{ product.price }}</h2>
+
+        <a href="{% url 'add_to_cart' product.id %}">
+            <button>Add to Cart</button>
+        </a>
+
+    </div>
+
+</body>
+</html>
